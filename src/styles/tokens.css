@@ -1,0 +1,57 @@
+/* 设计令牌：活泼可爱糖果风 */
+:root {
+  /* 背景与文字 */
+  --c-bg: #fff7f2;
+  --c-bg-soft: #ffefe6;
+  --c-card: #ffffff;
+  --c-ink: #3d3355;
+  --c-ink-2: #7a6e96;
+  --c-ink-3: #a79fc0;
+  --c-line: #f2e9f6;
+
+  /* 糖果色板 */
+  --c-pink: #ff8fa3;
+  --c-pink-soft: #ffe8ee;
+  --c-blue: #6fc8e8;
+  --c-blue-soft: #e4f4fb;
+  --c-yellow: #ffc94d;
+  --c-yellow-soft: #fff4d8;
+  --c-green: #7bd88f;
+  --c-green-soft: #e5f8ea;
+  --c-purple: #b79bff;
+  --c-purple-soft: #efe9ff;
+  --c-orange: #ffa76b;
+  --c-orange-soft: #ffeee2;
+
+  /* 圆角 */
+  --r-xl: 28px;
+  --r-lg: 22px;
+  --r-md: 16px;
+  --r-sm: 12px;
+  --r-pill: 999px;
+
+  /* 阴影 */
+  --sh-card: 0 6px 20px rgba(122, 110, 150, 0.08);
+  --sh-hover: 0 10px 26px rgba(122, 110, 150, 0.14);
+  --sh-pop: 0 16px 40px rgba(122, 110, 150, 0.18);
+
+  /* 动效 */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* 尺寸 */
+  --nav-w: 208px;
+  --tabbar-h: 62px;
+  --content-max: 1080px;
+
+  /* 字体 */
+  --font: 'HarmonyOS Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Nunito', system-ui, -apple-system,
+    sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ease-bounce: ease;
+    --ease-soft: ease;
+  }
+}

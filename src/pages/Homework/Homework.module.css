@@ -1,0 +1,190 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.filterHint {
+  font-size: 12px;
+  color: var(--c-ink-3);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- 作业卡片 ---------- */
+.card {
+  background: #fff;
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-card);
+  padding: 18px;
+  animation: pop-in 0.34s var(--ease-soft);
+}
+
+.hwHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hwInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.hwTitle {
+  font-size: 17px;
+  font-weight: 800;
+  word-break: break-all;
+}
+
+.hwMeta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--c-ink-3);
+}
+
+.subject {
+  padding: 1px 8px;
+  border-radius: var(--r-pill);
+  background: var(--c-purple-soft);
+  color: var(--c-ink-2);
+  font-weight: 700;
+}
+
+.hwOps {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.note {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--c-ink-2);
+  background: var(--c-bg);
+  border-radius: var(--r-sm);
+  padding: 8px 10px;
+  word-break: break-all;
+}
+
+
+.counters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 12px 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.cDone {
+  color: #3f9a56;
+}
+.cFix {
+  color: #c98a1e;
+}
+.cMiss {
+  color: #d9607a;
+}
+.cPend {
+  color: var(--c-ink-3);
+}
+
+/* ---------- 班级分组 ---------- */
+.group {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--c-line);
+}
+
+.groupTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--c-ink-2);
+  margin-bottom: 10px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.groupCount {
+  font-weight: 600;
+  color: var(--c-ink-3);
+}
+
+.groupEmpty {
+  font-size: 12px;
+  color: var(--c-ink-3);
+}
+
+.studentBtns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  gap: 8px;
+}
+
+.stuBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 9px 4px;
+  border-radius: var(--r-md);
+  font-weight: 700;
+  transition: transform 0.16s var(--ease-bounce), box-shadow 0.16s var(--ease-soft);
+}
+.stuBtn:hover {
+  box-shadow: var(--sh-card);
+  transform: translateY(-2px);
+}
+.stuBtn:active {
+  animation: jelly 0.36s var(--ease-bounce);
+}
+
+.stuEmoji {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.stuName {
+  font-size: 12px;
+  word-break: break-all;
+  text-align: center;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+  }
+  .hwOps {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 84px;
+  }
+  .studentBtns {
+    grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+    gap: 7px;
+  }
+}

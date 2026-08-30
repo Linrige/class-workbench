@@ -1,0 +1,31 @@
+.wrap {
+  padding: 34px 18px;
+  text-align: center;
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px dashed var(--c-line);
+}
+
+.emoji {
+  font-size: 40px;
+  animation: jelly 3s var(--ease-soft) infinite;
+}
+
+.text {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-ink-2);
+}
+
+.hint {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--c-ink-3);
+}
+
+.action {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}

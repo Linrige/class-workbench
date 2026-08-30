@@ -1,0 +1,139 @@
+.dateRow,
+.quickRow,
+.priorityRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.human {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--c-ink-3);
+}
+
+.dateInput {
+  margin-left: auto;
+  padding: 6px 10px;
+  border-radius: var(--r-pill);
+  border: 2px solid var(--c-line);
+  background: #fff;
+  font-size: 13px;
+  outline: none;
+}
+.dateInput:focus {
+  border-color: var(--c-pink);
+}
+
+.modeHint {
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--c-ink-3);
+}
+
+.addRow {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 10px;
+}
+.addRow > :first-child {
+  flex: 1;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ---------- 列表 ---------- */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: #fff;
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-card);
+  animation: pop-in 0.28s var(--ease-soft);
+}
+
+.check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--c-line);
+  background: #fff;
+  color: #fff;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.18s var(--ease-bounce), background 0.18s var(--ease-soft);
+}
+.check:active {
+  transform: scale(0.86);
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.itemDate {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 8px;
+  border-radius: var(--r-pill);
+  background: var(--c-bg-soft);
+  font-size: 11px;
+  color: var(--c-ink-3);
+}
+
+.itemDone .title {
+  text-decoration: line-through;
+  color: var(--c-ink-3);
+}
+
+.doneHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 18px 0 2px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-ink-3);
+}
+
+.clearBtn {
+  font-size: 12px;
+  color: var(--c-pink);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .dateInput {
+    margin-left: 0;
+  }
+}

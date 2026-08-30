@@ -1,0 +1,518 @@
+/* ---------- 班级管理 ---------- */
+.tplEmpty {
+  text-align: center;
+  padding: 18px 8px;
+}
+.tplEmptyText {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-ink-2);
+}
+.tplEmptyHint {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--c-ink-3);
+}
+
+.tplList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tplItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  background: var(--c-bg);
+  transition: background 0.18s var(--ease-soft);
+}
+.tplItem:hover {
+  background: var(--c-bg-soft);
+}
+
+.tplEmoji {
+  font-size: 20px;
+}
+
+.tplInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.tplName {
+  font-size: 14px;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.tplMeta {
+  font-size: 12px;
+  color: var(--c-ink-3);
+}
+
+/* ---------- 备忘录 ---------- */
+.memoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.memo {
+  position: relative;
+  border-radius: var(--r-md);
+  border: 2px solid transparent;
+  padding: 14px 10px 10px;
+  min-height: 92px;
+  animation: pop-in 0.3s var(--ease-soft);
+}
+
+.memoText {
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+.memoOps {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.18s var(--ease-soft);
+}
+
+.memo:hover .memoOps {
+  opacity: 1;
+}
+
+.memoOp {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .memoOps {
+    opacity: 1;
+  }
+}
+
+/* ---------- 首页通用栅格 ---------- */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ---------- 今日速览 ---------- */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.summaryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 4px;
+  border-radius: var(--r-md);
+  background: var(--c-bg);
+  transition: transform 0.18s var(--ease-bounce);
+}
+.summaryItem:hover {
+  transform: translateY(-3px);
+}
+
+.summaryEmoji {
+  font-size: 20px;
+}
+.summaryValue {
+  font-size: 17px;
+  font-weight: 800;
+}
+.summaryLabel {
+  font-size: 11px;
+  color: var(--c-ink-3);
+}
+
+.summarySubjects {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--c-ink-2);
+  text-align: center;
+}
+
+/* ---------- 我的科目 ---------- */
+.subjectRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.customChip {
+  position: relative;
+  display: inline-flex;
+}
+
+.customDel {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--c-pink);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(255, 143, 163, 0.45);
+  z-index: 2;
+  transition: transform 0.18s var(--ease-bounce);
+}
+
+.customDel:active {
+  transform: scale(0.86);
+}
+
+.subjectAddRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.subjectAddRow > :first-child {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+/* ---------- 每日一言 ---------- */
+.quote {
+  position: relative;
+  width: 100%;
+  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+  padding: 16px 16px 28px;
+  border-radius: var(--r-md);
+  background: linear-gradient(150deg, var(--c-purple-soft), #f4f0ff);
+  border: 1.5px solid rgba(183, 155, 255, 0.35);
+  transition: transform 0.2s var(--ease-bounce), box-shadow 0.2s var(--ease-soft);
+}
+
+.quote:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-card);
+}
+
+.quote:active {
+  animation: jelly 0.4s var(--ease-bounce);
+}
+
+.quoteMark {
+  font-size: 36px;
+  line-height: 0.6;
+  color: var(--c-purple);
+  font-weight: 900;
+  font-family: Georgia, serif;
+}
+
+.quoteText {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--c-ink);
+  word-break: break-word;
+}
+
+.quoteAuthor {
+  font-size: 12px;
+  color: var(--c-ink-3);
+}
+
+.quoteDate {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  font-size: 11px;
+  color: var(--c-ink-2);
+  opacity: 0.4;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- 考勤排行 ---------- */
+.rankBlock {
+  margin-top: 4px;
+}
+
+.rankBlock + .rankBlock {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--c-line);
+}
+
+.rankTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--c-ink-2);
+  margin-bottom: 10px;
+}
+
+.rankRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  margin-bottom: 8px;
+  border-radius: var(--r-pill);
+  background: var(--c-bg);
+  animation: pop-in 0.28s var(--ease-soft);
+}
+
+.rankNo {
+  width: 22px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  flex-shrink: 0;
+}
+
+.rankDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rankName {
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rankSub {
+  font-size: 12px;
+  color: var(--c-ink-3);
+  flex-shrink: 0;
+}
+
+.rankBarWrap {
+  flex: 1;
+  min-width: 40px;
+  height: 8px;
+  border-radius: var(--r-pill);
+  background: var(--c-line);
+  overflow: hidden;
+}
+
+.rankBar {
+  height: 100%;
+  border-radius: var(--r-pill);
+  background: linear-gradient(90deg, var(--c-yellow), var(--c-pink));
+  transition: width 0.4s var(--ease-soft);
+}
+
+.rankMeta {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-ink-2);
+  flex-shrink: 0;
+}
+
+.rankMore {
+  display: block;
+  width: 100%;
+  margin-top: 2px;
+  padding: 8px;
+  border-radius: var(--r-pill);
+  background: var(--c-bg);
+  color: var(--c-ink-3);
+  font-size: 12px;
+  font-weight: 800;
+  transition: background 0.18s var(--ease-soft), color 0.18s var(--ease-soft);
+}
+
+.rankMore:hover {
+  background: var(--c-bg-soft);
+  color: var(--c-pink);
+}
+
+.rankEmpty {
+  font-size: 13px;
+  color: var(--c-ink-3);
+  padding: 6px 2px;
+}
+
+.classPickRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.hintText {
+  font-size: 12px;
+  color: var(--c-ink-3);
+}
+
+.rankGood {
+  color: #3f9a56;
+}
+
+.rankBarClean {
+  background: linear-gradient(90deg, var(--c-green-soft), var(--c-green));
+  opacity: 0.55;
+}
+
+
+
+@media (max-width: 768px) {
+  .rankRow {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+  .rankBarWrap {
+    display: none;
+  }
+  .rankName {
+    max-width: 84px;
+  }
+}
+
+/* ---------- 随机点名全屏 ---------- */
+.picker {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: linear-gradient(160deg, #b79bff, #ff8fa3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: pop-in 0.24s var(--ease-soft);
+}
+
+.pickerClose {
+  position: absolute;
+  top: calc(16px + env(safe-area-inset-top));
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  color: #fff;
+  font-size: 17px;
+}
+
+.pickerInner {
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+.pickerHint {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pickerName {
+  margin: 18px 0 26px;
+  font-size: 58px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  word-break: break-all;
+  line-height: 1.2;
+}
+
+.pickerRolling {
+  opacity: 0.86;
+}
+
+.pickerResult {
+  animation: jelly 0.7s var(--ease-bounce);
+}
+
+.pickerOps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.pickerMeta {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+}
+
+.linkBtn {
+  margin-left: 8px;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti span {
+  position: absolute;
+  top: -10%;
+  font-size: 24px;
+  animation: confetti-fall 1.4s var(--ease-soft) forwards;
+}
+
+@keyframes confetti-fall {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(120vh) rotate(420deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .pickerName {
+    font-size: 46px;
+  }
+}
