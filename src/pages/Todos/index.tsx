@@ -3,7 +3,6 @@ import Button, { Fab, IconButton } from '@/components/ui/Button'
 import { Chip, Input } from '@/components/ui/Field'
 import Empty from '@/components/Empty'
 import { useTodos } from '@/hooks/useTodos'
-import { PRIORITY_LABEL } from '@/domain/constants'
 import {
   clearDone,
   clearDoneByIds,
@@ -12,8 +11,9 @@ import {
   toggleTodo,
 } from '@/domain/repositories/todos'
 import { askConfirm } from '@/components/ui/confirm'
+import TimePicker from '@/components/ui/TimePicker'
 import { addDays, dayjs, formatHuman, today, weekDates } from '@/utils/date'
-import type { Priority, Todo } from '@/domain/types'
+import type { Todo } from '@/domain/types'
 import EditTodoModal from './EditTodoModal'
 import styles from './Todos.module.css'
 
@@ -21,7 +21,7 @@ export default function Todos() {
   const [date, setDate] = useState(today())
   const [weekMode, setWeekMode] = useState(false)
   const [text, setText] = useState('')
-  const [priority, setPriority] = useState<Priority>(1)
+  const [time, setTime] = useState('')
   const [editing, setEditing] = useState<Todo | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -46,8 +46,9 @@ export default function Todos() {
     const title = text.trim()
     if (!title) return
     // 本周模式下统一记为今天，保证新增项一定落在当前显示范围内
-    await createTodo({ title, date: weekMode ? today() : date, priority })
+    await createTodo({ title, date: weekMode ? today() : date, time: time || undefined })
     setText('')
+    setTime('')
   }
 
   return (
@@ -100,17 +101,9 @@ export default function Todos() {
         </Button>
       </div>
 
-      <div className={styles.priorityRow}>
-        <span className={styles.hint}>优先级：</span>
-        {([0, 1, 2] as Priority[]).map((p) => (
-          <Chip key={p} active={priority === p} onClick={() => setPriority(p)}>
-            <span
-              className={styles.dot}
-              style={{ background: PRIORITY_LABEL[p].color }}
-            />
-            {PRIORITY_LABEL[p].label}
-          </Chip>
-        ))}
+      <div className={styles.timeRow}>
+        <span className={styles.timeLabel}>⏰ 开始时间（选填）</span>
+        <TimePicker value={time} onChange={setTime} />
       </div>
 
       {visible.length === 0 ? (
@@ -222,9 +215,9 @@ function TodoRow({
       </button>
       <button type="button" className={styles.title} onClick={onEdit}>
         {showDate && <span className={styles.itemDate}>{formatHuman(todo.date)}</span>}
+        {todo.time && <span className={styles.itemTime}>🕗 {todo.time}</span>}
         {todo.title}
       </button>
-      <span className={styles.dot} style={{ background: PRIORITY_LABEL[todo.priority].color }} />
       <IconButton onClick={onDelete} title="删除">
         🗑️
       </IconButton>

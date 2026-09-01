@@ -54,12 +54,6 @@ export const ATTEND_STATUS: Record<
 /** 考勤状态的点击循环顺序：到达 → 迟到 → 缺勤 → 请假 */
 export const ATTEND_CYCLE: AttendStatus[] = [0, 1, 2, 3]
 
-export const PRIORITY_LABEL: Record<number, { label: string; color: string }> = {
-  0: { label: '不高', color: 'var(--c-ink-3)' },
-  1: { label: '普通', color: 'var(--c-blue)' },
-  2: { label: '重要', color: 'var(--c-pink)' },
-}
-
 export const WEEKDAY_LABEL = ['一', '二', '三', '四', '五', '六', '日']
 
 /** 常用教学科目预设，可在首页「我的科目」中自定义补充 */

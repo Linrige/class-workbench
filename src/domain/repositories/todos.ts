@@ -1,26 +1,37 @@
 import { db } from '@/db/db'
-import type { Priority, Todo } from '@/domain/types'
+import type { Todo } from '@/domain/types'
 import { uid } from '@/utils/id'
+
+function compareByTime(a: Todo, b: Todo): number {
+  // 有时间的排前面，按时间先后；都没有时间按创建顺序
+  if (a.time && b.time) return a.time.localeCompare(b.time)
+  if (a.time) return -1
+  if (b.time) return 1
+  return a.createdAt - b.createdAt
+}
 
 export async function listTodos(date?: string): Promise<Todo[]> {
   const all = await db.todos.orderBy('createdAt').toArray()
   const filtered = date ? all.filter((t) => t.date === date) : all
   return filtered.sort(
-    (a, b) => Number(a.done) - Number(b.done) || b.priority - a.priority || a.createdAt - b.createdAt,
+    (a, b) => Number(a.done) - Number(b.done) || compareByTime(a, b),
   )
 }
 
 export async function createTodo(input: {
   title: string
   date: string
-  priority?: Priority
+  /** 开始时间 HH:mm，选填 */
+  time?: string
 }): Promise<string> {
   const id = uid()
   await db.todos.add({
     id,
     title: input.title,
     date: input.date,
-    priority: input.priority ?? 1,
+    time: input.time || undefined,
+    // 旧版字段，仅保留兼容历史数据
+    priority: 1,
     done: false,
     createdAt: Date.now(),
   })

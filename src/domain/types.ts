@@ -101,6 +101,9 @@ export interface Todo {
   title: string
   /** yyyy-MM-dd */
   date: string
+  /** 开始时间 HH:mm，选填 */
+  time?: string
+  /** 已弃用，仅为兼容旧数据保留 */
   priority: Priority
   done: boolean
   doneAt?: number

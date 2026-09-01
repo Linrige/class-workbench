@@ -1,11 +1,27 @@
 .dateRow,
 .quickRow,
-.priorityRow {
+.timeRow {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin: 10px 0 12px;
+}
+
+.timeLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-ink-2);
+}
+
+.itemTime {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 8px;
+  border-radius: var(--r-pill);
+  background: var(--c-blue-soft);
+  color: #3a7fa8;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .human {
